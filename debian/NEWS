@@ -1,0 +1,12 @@
+spawn-fcgi (1.6.4-1) unstable; urgency=medium
+
+  spawn-fcgi now interprets the mode (-M) always as octal integer (same
+  as chmod). Also it will always set the mode (for Unix domain sockets,
+  not TCP); the default will remove the executable bits and read+write
+  access for others (in addition to umask restrictions).
+
+  If you want others to be able to connect to your Unix domain socket,
+  you have to manually specify -M 0666 (or better: create a shared
+  group, or spawn as root and use the -u and -U options)
+
+ -- Stefan Buehler <stbuehler@web.de>  Thu, 05 Jun 2014 14:07:16 +0200

@@ -1,0 +1,33 @@
+>From dbed609d7255e2f21675c120ce28872f2c2709e2 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Tim=20D=C3=BCsterhus?= <tim@bastelstu.be>
+Date: Sun, 16 Jul 2017 00:19:51 +0200
+Subject: [PATCH] Fix detection of IPv6 support in generated configure script
+
+---
+ configure.ac | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index b1a7401..742843d 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -75,13 +75,13 @@ AC_ARG_ENABLE(ipv6,
+ 
+ if test x$ipv6 = xtrue; then
+   AC_CACHE_CHECK([for IPv6 support], ac_cv_ipv6_support,
+-    [AC_TRY_LINK([[
++    [AC_TRY_LINK([
+ #include <sys/types.h>
+ #include <sys/socket.h>
+ #include <netinet/in.h>
+-    ]], [[
++    ], [
+ struct sockaddr_in6 s; struct in6_addr t=in6addr_any; int i=AF_INET6; s; t.s6_addr[0] = 0;
+-    ]], [ac_cv_ipv6_support=yes], [ac_cv_ipv6_support=no])])
++    ], [ac_cv_ipv6_support=yes], [ac_cv_ipv6_support=no])])
+ 
+   if test "$ac_cv_ipv6_support" = yes; then
+     AC_DEFINE(HAVE_IPV6,1,[Whether to enable IPv6 support])
+-- 
+2.13.0
+

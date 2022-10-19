@@ -1,0 +1,63 @@
+spawn-fcgi (1.6.4-2) unstable; urgency=medium
+
+  * Patch fixing IPv6 detection during build (Closes: #868485).
+    Thanks to Tim Duesterhus.
+  * Use dh-autoreconf.
+
+ -- Jérémy Lal <kapouer@melix.org>  Sun, 16 Jul 2017 21:29:51 +0200
+
+spawn-fcgi (1.6.4-1) unstable; urgency=medium
+
+  * New upstream release, Closes: #750653.
+
+  [ Upstream ]
+  * Use octal mode for -M (patch by dfjoerg)
+  * Add -b backlog option (fixes #2422, patch by aschmitz)
+  * Restrict Unix socket file ownership by default to ug=rw
+  * Add example apparmor spawn-fcgi abstraction
+  * Use autoreconf instead of calling tools manually
+  * Add more flags to extra-warning flags
+  * Check return values of setuid, setgid, setgroups, initgroups, write
+  * Check whether compiler supports wanted CFLAGS (fixes #2235)
+  * Fix resource leaks in failure cases (found with coverity)
+
+  [ Stefan Bühler ]
+  * Updates Standards-Version to 3.9.5
+  * Update rules and description
+  * debian/NEWS: mention octal mode and default value for -M
+  * Build-Depends debhelper 0.7.50~ (for target overriding)
+
+  [ Jérémy Lal ]
+  * Add Vcs-* control fields
+  * Switch to copyright-1.0 format
+  * Drop spawn-fcgi alternative in preinst-upgrade
+  * Switch to 3.0 (quilt) source format
+
+ -- Jérémy Lal <kapouer@melix.org>  Fri, 06 Jun 2014 01:51:00 +0200
+
+spawn-fcgi (1.6.3-1) unstable; urgency=low
+
+  * Upstream update
+  * Updates Standards-Version to 3.8.3
+  * Remove debian/spawn-fcgi.1, add debian/manpages
+
+ -- Jérémy Lal <kapouer@melix.org>  Wed, 23 Sep 2009 17:13:35 +0200
+
+spawn-fcgi (1.6.2-3) unstable; urgency=low
+
+  * Drop libc6-dev build-dependency (Closes: #533880)
+  * Updates Standards-Version to 3.8.2
+
+ -- Jérémy Lal <kapouer@melix.org>  Sun, 21 Jun 2009 19:43:56 +0200
+
+spawn-fcgi (1.6.2-2) unstable; urgency=low
+
+  * Show update-alternatives usage in README.Debian
+
+ -- Jérémy Lal <kapouer@melix.org>  Mon, 20 Apr 2009 11:39:31 +0200
+
+spawn-fcgi (1.6.2-1) unstable; urgency=low
+
+  * Initial release (Closes: #523707)
+
+ -- Jérémy Lal <kapouer@melix.org>  Mon, 20 Apr 2009 09:08:46 +0200
